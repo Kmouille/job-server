@@ -5,8 +5,10 @@ import java.util.Arrays;
 
 import org.apache.commons.io.IOCase;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
+import org.jobrunr.jobs.annotations.Job;
 import org.jobrunr.jobs.annotations.Recurring;
 import org.jobrunr.jobs.context.JobContext;
+import org.jobrunr.jobs.context.JobDashboardProgressBar;
 import org.jobrunr.jobs.context.JobRunrDashboardLogger;
 import org.jobrunr.scheduling.JobScheduler;
 import org.kmouille.jobserver.config.JobConfiguration;
@@ -31,41 +33,81 @@ public class PdfRecurringJobService {
 
 	private final IceBluePdfService iceBluePdfService;
 
-	@Recurring(id = "scan-folder-job-images", cron = "*/2 * * * *")
+	@Recurring(id = "scan-folder-job-images", cron = "*/20 * * * *")
+	@Job(name = "Convert pages of files to images")
 	public void generateImages(JobContext jobContext) {
 		var srcFolder = new File(jobConfiguration.getSourceFolder(), "toImages");
-		srcFolder.mkdir();
+		srcFolder.mkdirs();
 		var filePath = srcFolder.getAbsolutePath();
 		var filenames = srcFolder.list(new SuffixFileFilter(".pdf", IOCase.INSENSITIVE));
 		jobLogger.info("[IMAGES] Launching job for {}", Arrays.toString(filenames));
 		for (var filename : filenames) {
-			var file = new File(filePath, filename);
-			var fileName = file.getName();
-			jobLogger.info("Launching job {}/{}", filePath, fileName);
+			jobLogger.info("Launching job {}", new File(filePath, filename).getAbsolutePath());
 			var enqueuedJobId = jobScheduler
 					.enqueue(() -> {
-						pdfService.generateImages(JobContext.Null, filePath, fileName, 72);
+						pdfService.generateImages(JobContext.Null, filePath, filename, 72);
 					});
-			jobLogger.info("[IMAGES] Job {} enqueued for {}", enqueuedJobId, fileName);
+			jobLogger.info("[IMAGES] Job {} enqueued for {}", enqueuedJobId, filename);
 		}
 	}
 
-	@Recurring(id = "scan-folder-job-pdfa", cron = "*/3 * * * *")
+	/**
+	 * Example of a recurring job that doesn't trigger subjobs.
+	 * 
+	 * @param jobContext
+	 *            injected by the JobScheduler
+	 */
+	@Recurring(id = "scan-folder-job-pdfa", cron = "*/5 * * * *")
+	@Job(name = "Convert files to PDFA")
 	public void convertToPdfa(JobContext jobContext) {
 		var srcFolder = new File(jobConfiguration.getSourceFolder(), "toPdfa");
-		srcFolder.mkdir();
+		srcFolder.mkdirs();
 		var filePath = srcFolder.getAbsolutePath();
 		var filenames = srcFolder.list(new SuffixFileFilter(".pdf", IOCase.INSENSITIVE));
+
+		var destFolder = new File(jobConfiguration.getDestinationFolder(), "PDFA");
+		var subFolder = new File(destFolder, jobContext.getJobId().toString());
+		subFolder.mkdirs();
+
+		var progressBar = jobContext.progressBar(filenames.length);
 		jobLogger.info("[PDFA] Launching job for {} files", filenames.length);
 		for (var filename : filenames) {
 			var file = new File(filePath, filename);
-			var fileName = file.getName();
-			jobLogger.info("Launching job {}/{}", filePath, fileName);
+			jobLogger.info("Converting {}", file.getAbsolutePath());
+			try {
+				iceBluePdfService.convertToPdfa(file, subFolder);
+				increaseByOne(progressBar, true);
+			} catch (Exception e) {
+				// Exception cause I don't know the iceBlue types
+				log.error("Conversion failed {}", filename, e);
+				jobLogger.warn("Conversion failed {}: {}", file.getName(), e.getMessage());
+				increaseByOne(progressBar, false);
+			}
+		}
+	}
+
+	private void increaseByOne(JobDashboardProgressBar progressBar, boolean succeeded) {
+		progressBar.setProgress(progressBar.getTotalAmount(),
+				progressBar.getSucceededAmount() + (succeeded ? 1 : 0),
+				progressBar.getFailedAmount() + (succeeded ? 0 : 1));
+
+	}
+
+	@Recurring(id = "scan-folder-job-docx", cron = "*/15 * * * *")
+	@Job(name = "Convert files to DOCX")
+	public void convertToDocx(JobContext jobContext) {
+		var srcFolder = new File(jobConfiguration.getSourceFolder(), "toDocx");
+		srcFolder.mkdirs();
+		var filePath = srcFolder.getAbsolutePath();
+		var filenames = srcFolder.list(new SuffixFileFilter(".pdf", IOCase.INSENSITIVE));
+		jobLogger.info("[DOCX] Launching job for {} files", filenames.length);
+		for (var filename : filenames) {
+			jobLogger.info("Launching job {}", new File(filePath, filename).getAbsolutePath());
 			var enqueuedJobId = jobScheduler
 					.enqueue(() -> {
-						iceBluePdfService.convertToPdfa(JobContext.Null, filePath, fileName);
+						iceBluePdfService.convertToDocx(JobContext.Null, filePath, filename);
 					});
-			jobLogger.info("[PDFA] Job {} enqueued for {}", enqueuedJobId, fileName);
+			jobLogger.info("[DOCX] Job {} enqueued for {}", enqueuedJobId, filename);
 		}
 	}
 
