@@ -50,7 +50,7 @@ public class PdfService {
 		var fileSize = FileUtils.sizeOf(srcFile);
 		jobLogger.info("Rendering {} ({})", srcFile.getAbsolutePath(), FileUtils.byteCountToDisplaySize(fileSize));
 
-		var destFolder = jobConfiguration.getDestinationFolder();
+		var destFolder = new File(jobConfiguration.getDestinationFolder(), "IMG");
 		var subFolder = new File(new File(destFolder, jobContext.getJobId().toString()), srcFileBasename);
 		subFolder.mkdirs();
 

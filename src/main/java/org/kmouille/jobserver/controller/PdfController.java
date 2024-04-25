@@ -9,6 +9,7 @@ import java.util.UUID;
 import org.jobrunr.jobs.context.JobContext;
 import org.jobrunr.scheduling.JobScheduler;
 import org.jobrunr.storage.StorageProvider;
+import org.kmouille.jobserver.service.IceBluePdfService;
 import org.kmouille.jobserver.service.PdfService;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
@@ -26,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 public class PdfController {
 
 	private final PdfService pdfService;
+	private final IceBluePdfService iceBluePdfService;
 
 	private final StorageProvider storageProvider;
 
@@ -46,6 +48,18 @@ public class PdfController {
 		// Separating file name from location for easy job details rendering
 		var enqueuedJobId = jobScheduler
 				.enqueue(() -> pdfService.generateImages(JobContext.Null, filePath, fileName, dpi));
+		return enqueuedJobId.toString();
+	}
+
+	@GetMapping(value = "pdfa", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String convertToPdfa(@RequestParam(name = "path") String path) throws IOException {
+		var file = new File(URLDecoder.decode(path, StandardCharsets.UTF_8));
+		var filePath = file.getParent();
+		var fileName = file.getName();
+		// [JobRunr] Best practice to prepare the simplest lambda
+		// Separating file name from location for easy job details rendering
+		var enqueuedJobId = jobScheduler
+				.enqueue(() -> iceBluePdfService.convertToPdfa(JobContext.Null, filePath, fileName));
 		return enqueuedJobId.toString();
 	}
 
