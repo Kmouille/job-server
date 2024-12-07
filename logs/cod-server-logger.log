@@ -1,0 +1,116 @@
+2024-12-07 13:08:30 [main] INFO  o.k.jobserver.JobServerApplication - Starting JobServerApplication using Java 21.0.4 with PID 17148 (C:\Users\camille.blondiaux\git\job-server\target\classes started by camille.blondiaux in C:\Users\camille.blondiaux\git\job-server)
+2024-12-07 13:08:30 [main] INFO  o.k.jobserver.JobServerApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-07 13:08:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-12-07 13:08:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-07 13:08:31 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-07 13:08:31 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-07 13:08:31 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-07 13:08:31 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 929 ms
+2024-12-07 13:08:31 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pdfController' defined in file [C:\Users\camille.blondiaux\git\job-server\target\classes\org\kmouille\jobserver\controller\PdfController.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'storageProvider' defined in class path resource [org/kmouille/jobserver/config/JobConfiguration.class]: Unsatisfied dependency expressed through method 'storageProvider' parameter 0: No qualifying bean of type 'org.jobrunr.jobs.mappers.JobMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-12-07 13:08:31 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-12-07 13:08:31 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-07 13:08:31 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method storageProvider in org.kmouille.jobserver.config.JobConfiguration required a bean of type 'org.jobrunr.jobs.mappers.JobMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.jobrunr.jobs.mappers.JobMapper' in your configuration.
+
+2024-12-07 13:23:53 [main] INFO  o.k.jobserver.JobServerApplication - Starting JobServerApplication using Java 21.0.4 with PID 4428 (C:\Users\camille.blondiaux\git\job-server\target\classes started by camille.blondiaux in C:\Users\camille.blondiaux\git\job-server)
+2024-12-07 13:23:53 [main] INFO  o.k.jobserver.JobServerApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-07 13:23:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-12-07 13:23:54 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-07 13:23:54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-07 13:23:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-07 13:23:54 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-07 13:23:54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 930 ms
+2024-12-07 13:23:54 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pdfController' defined in file [C:\Users\camille.blondiaux\git\job-server\target\classes\org\kmouille\jobserver\controller\PdfController.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'storageProvider' defined in class path resource [org/kmouille/jobserver/config/JobConfiguration.class]: Unsatisfied dependency expressed through method 'storageProvider' parameter 0: No qualifying bean of type 'org.jobrunr.jobs.mappers.JobMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-12-07 13:23:54 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-12-07 13:23:54 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-07 13:23:55 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method storageProvider in org.kmouille.jobserver.config.JobConfiguration required a bean of type 'org.jobrunr.jobs.mappers.JobMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.jobrunr.jobs.mappers.JobMapper' in your configuration.
+
+2024-12-07 13:26:28 [main] INFO  o.k.jobserver.JobServerApplication - Starting JobServerApplication using Java 21.0.4 with PID 2616 (C:\Users\camille.blondiaux\git\job-server\target\classes started by camille.blondiaux in C:\Users\camille.blondiaux\git\job-server)
+2024-12-07 13:26:28 [main] INFO  o.k.jobserver.JobServerApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-07 13:26:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-12-07 13:26:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-07 13:26:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-07 13:26:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-07 13:26:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-07 13:26:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 794 ms
+2024-12-07 13:26:29 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pdfController' defined in file [C:\Users\camille.blondiaux\git\job-server\target\classes\org\kmouille\jobserver\controller\PdfController.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'storageProvider' defined in class path resource [org/kmouille/jobserver/config/JobConfiguration.class]: Unsatisfied dependency expressed through method 'storageProvider' parameter 0: No qualifying bean of type 'org.jobrunr.jobs.mappers.JobMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-12-07 13:26:29 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-12-07 13:26:29 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-07 13:26:29 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method storageProvider in org.kmouille.jobserver.config.JobConfiguration required a bean of type 'org.jobrunr.jobs.mappers.JobMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.jobrunr.jobs.mappers.JobMapper' in your configuration.
+
+2024-12-07 13:28:02 [main] INFO  o.k.j.CodServerApplicationTests - Starting CodServerApplicationTests using Java 21.0.4 with PID 22412 (started by camille.blondiaux in C:\Users\camille.blondiaux\git\job-server)
+2024-12-07 13:28:02 [main] INFO  o.k.j.CodServerApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v000__create_migrations_table.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v001__create_job_table.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v002__create_recurring_job_table.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v003__create_background_job_server_table.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v004__create_job_stats_view.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v005__update_job_stats_view.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v006__alter_table_jobs_add_recurringjob.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v007__alter_table_backgroundjobserver_add_delete_config.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v008__alter_table_jobs_increase_jobAsJson_size.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/h2/migrations/v009__change_jobrunr_job_counters_to_jobrunr_metadata.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/h2/migrations/v010__change_job_stats.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v011__change_sqlserver_text_to_varchar.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v012__change_oracle_alter_jobrunr_metadata_column_size.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v013__alter_table_recurring_job_add_createdAt.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v014__improve_job_stats.sql}
+2024-12-07 13:28:03 [main] INFO  o.j.s.sql.common.DatabaseCreator - Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v015__alter_table_backgroundjobserver_add_name.sql}
+2024-12-07 13:28:04 [main] INFO  o.j.s.t.VirtualThreadJobRunrExecutor - ThreadManager of type 'VirtualThreadPerTask' started
+2024-12-07 13:28:04 [main] INFO  o.j.d.JobRunrDashboardWebServer - JobRunr Dashboard using H2StorageProvider started at http://localhost:8000/dashboard
+2024-12-07 13:28:05 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2024-12-07 13:28:05 [main] INFO  o.k.j.CodServerApplicationTests - Started CodServerApplicationTests in 3.12 seconds (process running for 4.353)
+2024-12-07 13:28:05 [registrationTask1] WARN  d.c.b.a.c.r.ApplicationRegistrator - Failed to register application as Application(name=spring-boot-application, managementUrl=http://localhost:8080/actuator, healthUrl=http://localhost:8080/actuator/health, serviceUrl=http://localhost:8080) at spring-boot-admin ([http://localhost:8098/instances]): I/O error on POST request for "http://localhost:8098/instances": null. Further attempts are logged on DEBUG level
+2024-12-07 13:28:05 [backgroundjob-zookeeper-pool-3-thread-1] INFO  o.jobrunr.server.BackgroundJobServer - JobRunr BackgroundJobServer (ef91ab1c-100e-470a-ba9f-9902c77a6696) using H2StorageProvider and 320 BackgroundJobPerformers started successfully
+2024-12-07 13:28:05 [backgroundjob-zookeeper-pool-3-thread-1] INFO  org.jobrunr.server.ServerZooKeeper - Server ef91ab1c-100e-470a-ba9f-9902c77a6696 is master (this BackgroundJobServer)
+2024-12-07 13:28:05 [pool-5-thread-1] INFO  o.j.s.t.s.MigrateFromV5toV6Task - Start migration of scheduled jobs from v5 to v6
+2024-12-07 13:28:05 [pool-5-thread-1] INFO  o.j.s.t.s.MigrateFromV5toV6Task - Found 0 scheduled jobs to migrate.
+2024-12-07 13:28:05 [pool-5-thread-1] INFO  o.j.s.t.s.MigrateFromV5toV6Task - Finished migration of scheduled jobs from v5 to v6
+2024-12-07 13:28:05 [SpringApplicationShutdownHook] INFO  o.j.d.JobRunrDashboardWebServer - JobRunr dashboard stopped
+2024-12-07 13:28:05 [SpringApplicationShutdownHook] INFO  o.jobrunr.server.BackgroundJobServer - BackgroundJobServer - stopping (may take about PT10S)
+2024-12-07 13:28:05 [SpringApplicationShutdownHook] INFO  o.jobrunr.server.BackgroundJobServer - BackgroundJobPerformers - stopping (waiting at most PT10S for jobs to finish)
+2024-12-07 13:28:06 [SpringApplicationShutdownHook] INFO  o.jobrunr.server.BackgroundJobServer - BackgroundJobServer and BackgroundJobPerformers stopped
