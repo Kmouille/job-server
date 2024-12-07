@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.0</version>
+		<version>3.4.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.kmouille</groupId>
@@ -18,9 +18,10 @@
 	<properties>
 		<java.version>21</java.version>
 		<spring-jobrunr.version>7.3.2</spring-jobrunr.version>
-		<spring-admin.version>3.3.1</spring-admin.version>
+		<spring-jobrunr.version>7.2.0</spring-jobrunr.version>
+		<spring-admin.version>3.4.1</spring-admin.version>
 		<pdfbox.version>3.0.2</pdfbox.version>
-		<commons-io.version>2.16.1</commons-io.version>
+		<commons-io.version>2.18.0</commons-io.version>
 		<jai-imageio-core.version>1.4.0</jai-imageio-core.version>
 		<jai-imageio-jpeg2000.version>1.4.0</jai-imageio-jpeg2000.version>
 		<jbig2-imageio.version>3.0.4</jbig2-imageio.version>
