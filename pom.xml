@@ -17,7 +17,7 @@
 	
 	<properties>
 		<java.version>21</java.version>
-		<spring-jobrunr.version>7.2.0</spring-jobrunr.version>
+		<spring-jobrunr.version>7.3.2</spring-jobrunr.version>
 		<spring-admin.version>3.3.1</spring-admin.version>
 		<pdfbox.version>3.0.2</pdfbox.version>
 		<commons-io.version>2.16.1</commons-io.version>
